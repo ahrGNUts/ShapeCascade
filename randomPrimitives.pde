@@ -2,7 +2,7 @@ float xIdx = 20;
 float yIdx = 20;
 
 void setup() {
-  size(750,750);
+  size(770,770);
   setBackcolor();
 }
 
@@ -36,7 +36,7 @@ void draw() {
      yIdx += 30;
      if(yIdx >= 750) {
        yIdx = 0;
-       setBackcolor();
+       //setBackcolor(); this is less fun to look at each time and to implement a backcolor change while preserving the shapes drawn on it will probably be too complicated
      }
    }
    
