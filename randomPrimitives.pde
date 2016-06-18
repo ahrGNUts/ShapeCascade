@@ -36,10 +36,10 @@ void draw() {
    
    xIdx += 30;
    if(xIdx >= 750) {// moves x index back to origin if at max, increments y
-     xIdx = 0;
+     xIdx = 30;
      yIdx += 30;
      if(yIdx >= 750) {
-       yIdx = 0;
+       yIdx = 30;
        //setBackcolor(); this is less fun to look at each time and to implement a backcolor change while preserving the shapes drawn on it will probably be too complicated
      }
    }
