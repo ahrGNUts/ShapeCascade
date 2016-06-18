@@ -8,25 +8,29 @@ void setup() {
 
 void draw() {
    int shapeNum = int(random(6));
-   //println(shapeNum);
+   //println(shapeNum); debug
    
    switch(shapeNum) {
      case 0:
        ellipse(xIdx, yIdx, random(50), random(50));
-       fill(random(255));
+       //fill(random(255));
+       keyCheck("ELLIPSE");
        break;
      case 1:
        rect(xIdx, yIdx, random(50), random(50));
-       fill(random(255));
+       //fill(random(255));
+       keyCheck("RECT");
        break;
      case 2:
        triangle(xIdx, yIdx, xIdx + random(50), yIdx + random(50), xIdx + random(50), yIdx + random(50));
-       fill(random(255));
+       //fill(random(255));
+       keyCheck("TRIANGLE");
        break;
      case 3:
        line(xIdx, yIdx, xIdx + random(30), yIdx + random(50));
-       strokeWeight(random(11));
-       stroke(random(255));
+       //strokeWeight(random(11));
+       //stroke(random(255));
+       keyCheck("LINE");
        break;
    }
    
@@ -40,6 +44,23 @@ void draw() {
      }
    }
    
+}
+
+void keyCheck() {
+  // checks for keypresses, changes shape colors and strokes accordingly
+  if(keyPressed) {
+    // if key(s) pressed, make color things happen
+    if(key == 's') {
+      stroke(random(255), random(255), random(255));
+      strokeWeight(random(11));
+    }
+    if(key == 'f') {
+      fill(random(255), random(255), random(255));
+    }
+  }
+  else {
+    fill(random(255));
+  }
 }
 
 void setBackcolor() {
