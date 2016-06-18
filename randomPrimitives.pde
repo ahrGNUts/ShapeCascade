@@ -14,23 +14,23 @@ void draw() {
      case 0:
        ellipse(xIdx, yIdx, random(50), random(50));
        //fill(random(255));
-       keyCheck("ELLIPSE");
+       keyCheck();
        break;
      case 1:
        rect(xIdx, yIdx, random(50), random(50));
        //fill(random(255));
-       keyCheck("RECT");
+       keyCheck();
        break;
      case 2:
        triangle(xIdx, yIdx, xIdx + random(50), yIdx + random(50), xIdx + random(50), yIdx + random(50));
        //fill(random(255));
-       keyCheck("TRIANGLE");
+       keyCheck();
        break;
      case 3:
        line(xIdx, yIdx, xIdx + random(30), yIdx + random(50));
        //strokeWeight(random(11));
        //stroke(random(255));
-       keyCheck("LINE");
+       keyCheck();
        break;
    }
    
@@ -60,6 +60,22 @@ void keyCheck() {
   }
   else {
     fill(random(255));
+    strokeWeight(2);
+  }
+  
+  // pixel static
+  if(mousePressed){// shuffle the pixels on the canvas
+     loadPixels();
+     color tmp[] = new color[pixels.length];
+     // load pixels into temporary array
+     for(int i = 0; i < height * width; i++) {
+       tmp[i] = pixels[i];
+     }
+     
+     for(int i = 0; i < 1250; i++){// takes pixels from one array, puts them in a random spot on the canvas
+       pixels[int(random(pixels.length))] = tmp[int(random(pixels.length))];
+     }
+     updatePixels();
   }
 }
 
